@@ -1,6 +1,8 @@
 /Debug
 /.vs
 test.cpp
+example.txt
+main.cpp
 *.db
 *.db-shm
 *.db-wal
