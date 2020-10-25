@@ -1,6 +1,6 @@
-#include <iostream>
 #include "Message.h"
 #include "Api.h"
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -29,6 +29,5 @@ namespace dpp {
 		const std::string path = "/channels/" + channel_id;
 		json res = Api::get(path);
 		channel.initialize(res);
-		std::cout << channel.name << std::endl;
 	}
 }
