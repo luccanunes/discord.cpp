@@ -10,16 +10,16 @@ Inspired by the simplicity of [discord.py](https://github.com/Rapptz/discord.py)
 #include <iostream>
 #include <dpp.h>
 
-dpp::Client client;
-
 int main()
 {
- client.onReady = []() {
+ dpp::Client client;
+
+ client.onReady = [&]() {
   std::cout << "hello, c++!\n";
   std::cout << client.user.id << "\n\n";
  };
 
- client.onMessage = [](dpp::Message message) {
+ client.onMessage = [&](dpp::Message message) {
   if (message.content == "jaaj?") {
    message.chanel.send("jooj");
   }
