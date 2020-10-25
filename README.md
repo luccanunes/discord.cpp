@@ -15,7 +15,7 @@ dpp::Client client;
 int main()
 {
  client.onReady = []() {
-  std::cout << "hello, c++!" << std::endl;
+  std::cout << "hello, c++!\n";
   std::cout << client.user.id << "\n\n";
  };
 
