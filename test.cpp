@@ -13,7 +13,7 @@ int main()
 	};
 
 	client.onMessage = [](dpp::Message message) {
-		std::cout << "its a message!!" << std::endl;
+		std::cout << "its a message!!: " << message.content << std::endl;
 		if (message.content == "jaaj?") {
 			client.send("jooj.", message.channel_id);
 		}

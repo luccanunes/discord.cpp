@@ -3,11 +3,13 @@
 #include <nlohmann/json.hpp>
 #include <vector>
 #include <string>
+#include "Channel.h"
 
 namespace dpp {
 	class Message {
 	public:
 		Message(nlohmann::json props);
+		Channel channel;
 		int flags;
 		bool tts;
 		bool pinned;
@@ -23,5 +25,6 @@ namespace dpp {
 		nlohmann::json attachments;
 		nlohmann::json mentions;
 		nlohmann::json mention_roles;
+		nlohmann::json reactions;
 	};
 }

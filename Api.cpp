@@ -1,17 +1,20 @@
 #include "Api.h"
+#include <iostream>
 
 using json = nlohmann::json;
 
 namespace Api {
 	std::string baseURL = "https://discord.com/api";
-	json get(const std::string path, const std::string token) {
-		const std::string authHeader = "Bot " + token;
+	std::string TOKEN = "";
+	json get(const std::string path) {
+		std::cout << TOKEN << std::endl;
+		const std::string authHeader = "Bot " + TOKEN;
 		const std::string URL = baseURL + path;
 		cpr::Response res = cpr::Get(cpr::Url{ URL }, cpr::Header{ {"authorization", authHeader} });
 		return json::parse(res.text);
 	}
-	json post(const std::string path, cpr::Body body, const std::string token) {
-		const std::string authHeader = "Bot " + token;
+	json post(const std::string path, cpr::Body body) {
+		const std::string authHeader = "Bot " + TOKEN;
 		const std::string URL = baseURL + path;
 		cpr::Response res = cpr::Post(
 			cpr::Url{ URL },

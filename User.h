@@ -13,6 +13,6 @@ namespace dpp {
 		std::string discriminator;
 		friend class Client;
 	protected:
-		void setInfo(nlohmann::json props);
+		void initialize(nlohmann::json props);
 	};
 }
