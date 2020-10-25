@@ -4,6 +4,7 @@
 #include <cpr/cpr.h>
 
 namespace Api {
-	nlohmann::json get(const std::string URL, const std::string token);
-	nlohmann::json post(const std::string URL, cpr::Body body, const std::string token);
+	extern std::string baseURL;
+	nlohmann::json get(const std::string path, const std::string token);
+	nlohmann::json post(const std::string path, cpr::Body body, const std::string token);
 }
