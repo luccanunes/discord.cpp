@@ -9,6 +9,7 @@ namespace dpp {
 		bool bot;
 		std::string id;
 		std::string name;
+		std::string email;
 		std::string avatar;
 		std::string discriminator;
 		friend class Client;
