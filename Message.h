@@ -18,7 +18,6 @@ namespace dpp {
 		std::string content;
 		std::string timestamp;
 		std::string guild_id;
-		std::string channel_id;
 		nlohmann::json embeds;
 		nlohmann::json author;
 		nlohmann::json member;
@@ -26,5 +25,7 @@ namespace dpp {
 		nlohmann::json mentions;
 		nlohmann::json mention_roles;
 		nlohmann::json reactions;
+	private:
+		std::string channel_id;
 	};
 }
