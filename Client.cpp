@@ -43,13 +43,16 @@ namespace dpp {
 						break;
 					case 0:
 						std::string t = res["t"];
-						if (t == "MESSAGE_CREATE") {
-							dpp::Message message(res["d"]);
-							onMessage(message);
-						}
-						else if (t == "READY") {
+						if (t == "READY") {
 							std::cout << "USER INFO: " << res["d"]["user"] << "\n\n";
 							user.setInfo(res["d"]["user"]);
+							if (onReady)
+								onReady();
+						}
+						else if (t == "MESSAGE_CREATE") {
+							dpp::Message message(res["d"]);
+							if (onMessage)
+								onMessage(message);
 						}
 						break;
 					}

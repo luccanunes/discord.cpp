@@ -12,12 +12,11 @@
 namespace dpp {
 	class Client {
 	public:
-		//std::unique_ptr<dpp::User> user;
-		//dpp::User* user;
 		dpp::User user;
 		void run(const std::string& TOKEN);
 		void send(const std::string message, const std::string channel_id);
 		void(*onMessage)(dpp::Message message);
+		void(*onReady)();
 	private:
 		ix::WebSocket webSocket;
 		int heartbeat_interval;
