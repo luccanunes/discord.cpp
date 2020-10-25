@@ -21,7 +21,7 @@ int main()
 
  client.onMessage = [](dpp::Message message) {
   if (message.content == "jaaj?") {
-   client.send("jooj", message.channel_id);
+   message.chanel.send("jooj");
   }
  };
  
