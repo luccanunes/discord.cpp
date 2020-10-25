@@ -10,6 +10,7 @@ using json = nlohmann::json;
 namespace dpp {
 	void Client::run(const std::string& TOKEN) {
 		token = TOKEN;
+		Api::TOKEN = TOKEN;
 		ix::initNetSystem();
 
 		std::string url("wss://gateway.discord.gg/?v=6&encoding=json");
@@ -45,7 +46,7 @@ namespace dpp {
 						std::string t = res["t"];
 						if (t == "READY") {
 							std::cout << "USER INFO: " << res["d"]["user"] << "\n\n";
-							user.setInfo(res["d"]["user"]);
+							user.initialize(res["d"]["user"]);
 							if (onReady)
 								onReady();
 						}
@@ -96,7 +97,7 @@ namespace dpp {
 	void Client::send(const std::string message, const std::string channel_id) {
 		const std::string path = "/channels/" + channel_id + "/messages";
 		json body = { {"content", message} };
-		json res = Api::post(path, cpr::Body{ body.dump() }, token);
+		json res = Api::post(path, cpr::Body{ body.dump() });
 		std::cout << res << std::endl;
 	}
 }

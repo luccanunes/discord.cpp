@@ -5,6 +5,7 @@
 
 namespace Api {
 	extern std::string baseURL;
-	nlohmann::json get(const std::string path, const std::string token);
-	nlohmann::json post(const std::string path, cpr::Body body, const std::string token);
+	extern std::string TOKEN;
+	nlohmann::json get(const std::string path);
+	nlohmann::json post(const std::string path, cpr::Body body);
 }
