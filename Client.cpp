@@ -94,48 +94,9 @@ namespace dpp {
 		webSocket.send(id.dump());
 	}
 	void Client::send(const std::string message, const std::string channel_id) {
-		std::string hookToken;
-		std::string hookID;
-		bool alreadyExists = false;
-
-		const std::string getURL = "https://discord.com/api/channels/" + channel_id + "/webhooks";
-
-		json hooks = Api::get(getURL, token);
-
-		for (json hook : hooks) {
-			if (hook["channel_id"] == channel_id && hook["name"] == "discord cpp") {
-				std::cout << "ALREADY EXISTS" << std::endl;
-				alreadyExists = true;
-				hookToken = hook["token"];
-				hookID = hook["id"];
-			}
-		}
-		if (!alreadyExists) {
-			std::cout << "doesnt exist :(" << std::endl;
-			const std::string postURL = "https://discord.com/api/channels/" + channel_id + "/webhooks";
-			json newHook = Api::post(postURL, cpr::Body{ "{\"name\": \"testando 123\"}" }, token);
-			hookToken = newHook["token"];
-			hookID = newHook["id"];
-		}
-		const std::string hookURL = "https://discord.com/api/webhooks/" + hookID + "/" + hookToken;
-		if (user.avatar == "null") {
-			cpr::Post(
-				cpr::Url{ hookURL },
-				cpr::Payload{
-					{"content", message},
-					{"username", user.name},
-				}
-			);
-		}
-		else {
-			cpr::Post(
-				cpr::Url{ hookURL },
-				cpr::Payload{
-					{"content", message},
-					{"username", user.name},
-					{"avatar_url", user.avatar}
-				}
-			);
-		}
+		const std::string path = "/channels/" + channel_id + "/messages";
+		json body = { {"content", message} };
+		json res = Api::post(path, cpr::Body{ body.dump() }, token);
+		std::cout << res << std::endl;
 	}
 }
