@@ -4,3 +4,4 @@
 - [ ] add `Role` class <br />
 - [ ] add `Emoji` class <br />
 - [ ] add `Embed` class <br />
+- [ ] make `Message::author` a `User` type
