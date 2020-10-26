@@ -1,5 +1,5 @@
-[] add method `reply` to `Message` class
-[] add method `add_mention` to `Message` class
-[] add `Role` class
-[] add `Emoji` class
-[] add `Embed` class
+- [ ] add method `reply` to `Message` class <br />
+- [ ] add method `add_mention` to `Message` class <br />
+- [ ] add `Role` class <br />
+- [ ] add `Emoji` class <br />
+- [ ] add `Embed` class <br />
