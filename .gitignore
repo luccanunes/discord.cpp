@@ -1,6 +1,6 @@
-/Debug
-/.vs
-test.cpp
+/src/Debug
+/src/.vs
+/src/test.cpp
 example.txt
 main.cpp
 *.db
