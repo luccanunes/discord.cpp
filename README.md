@@ -1,6 +1,5 @@
 <div align="center">
-  <img height="200" src="https://i.imgur.com/s2egZ6r.png">
-  <h1>discord.cpp</h1>
+  <img height="200" src="https://i.imgur.com/DCaFHXD.png">
   <p>A Discord API wrapper for creating C++ BOT's</p>
 </div>
 
