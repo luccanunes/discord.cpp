@@ -19,6 +19,6 @@ namespace dpp {
 		nlohmann::json emojis;
 		friend class Channel;
 	protected:
-		void initialize(nlohmann::json props);
+		void initialize(nlohmann::json& props);
 	};
 }

@@ -5,14 +5,13 @@
 using json = nlohmann::json;
 
 namespace dpp {
-	Message::Message(json props) {
+	Message::Message(json& props) {
 		tts = props["tts"];
 		timestamp = props["timestamp"];
 		pinned = props["pinned"];
 		mention_roles = props["mention_roles"];
 		embeds = props["embeds"];
 		attachments = props["attachments"];
-		author = props["author"];
 		mention_everyone = props["mention_everyone"];
 		member = props["member"];
 		id = props["id"];
@@ -26,8 +25,19 @@ namespace dpp {
 			guild_id = props["guild_id"];
 		if (!props["reactions"].is_null())
 			reactions = props["reactions"];
-		const std::string path = "/channels/" + channel_id;
-		json res = Api::get(path);
+
+		author.initialize(props["author"]);
+		json res = Api::get("/channels/" + channel_id);
 		channel.initialize(res);
+	}
+	void Message::reply(const std::string& message) {
+		const std::string path = "/channels/" + channel_id + "/messages";
+		json body = {
+			{"content", "<@" + author.id + "> " + message},
+			{"allowed_mentions", {
+				{"users", {author.id}}
+			}}
+		};
+		json res = Api::post(path, cpr::Body{ body.dump() });
 	}
 }

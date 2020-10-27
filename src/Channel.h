@@ -15,11 +15,11 @@ namespace dpp {
 		std::string icon;
 		std::string topic;
 		std::string last_message_id;
-		void send(std::string message);
+		void send(const std::string& message);
 		friend class Client;
 		friend class Message;
 	protected:
 		std::string guild_id;
-		void initialize(nlohmann::json props);
+		void initialize(nlohmann::json& props);
 	};
 }

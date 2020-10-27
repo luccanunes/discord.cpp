@@ -4,11 +4,13 @@
 #include <vector>
 #include <string>
 #include "Channel.h"
+#include "User.h"
 
 namespace dpp {
 	class Message {
 	public:
-		Message(nlohmann::json props);
+		Message(nlohmann::json& props);
+		User author;
 		Channel channel;
 		int flags;
 		bool tts;
@@ -19,12 +21,12 @@ namespace dpp {
 		std::string timestamp;
 		std::string guild_id;
 		nlohmann::json embeds;
-		nlohmann::json author;
 		nlohmann::json member;
 		nlohmann::json attachments;
 		nlohmann::json mentions;
 		nlohmann::json mention_roles;
 		nlohmann::json reactions;
+		void reply(const std::string& message);
 	private:
 		std::string channel_id;
 	};

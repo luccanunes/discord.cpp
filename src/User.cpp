@@ -2,7 +2,7 @@
 #include "User.h"
 
 namespace dpp {
-	void User::initialize(nlohmann::json props) {
+	void User::initialize(nlohmann::json& props) {
 		id = props["id"];
 		name = props["username"];
 		avatar = props["avatar"].dump();

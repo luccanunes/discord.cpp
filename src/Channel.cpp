@@ -5,7 +5,7 @@
 using json = nlohmann::json;
 
 namespace dpp {
-	void Channel::initialize(nlohmann::json props) {
+	void Channel::initialize(nlohmann::json& props) {
 		id = props["id"];
 		type = props["type"];
 		if (!props["name"].is_null())
@@ -23,7 +23,7 @@ namespace dpp {
 		json res = Api::get(path);
 		guild.initialize(res);
 	}
-	void Channel::send(std::string message) {
+	void Channel::send(const std::string& message) {
 		const std::string path = "/channels/" + id + "/messages";
 		json body = { {"content", message} };
 		json res = Api::post(path, cpr::Body{ body.dump() });

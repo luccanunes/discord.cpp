@@ -13,7 +13,8 @@ namespace dpp {
 		std::string avatar;
 		std::string discriminator;
 		friend class Client;
+		friend class Message;
 	protected:
-		void initialize(nlohmann::json props);
+		void initialize(nlohmann::json& props);
 	};
 }

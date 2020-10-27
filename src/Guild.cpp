@@ -3,7 +3,7 @@
 using json = nlohmann::json;
 
 namespace dpp {
-	void Guild::initialize(json props) {
+	void Guild::initialize(json& props) {
 		id = props["id"];
 		name = props["name"];
 		roles = props["roles"];
