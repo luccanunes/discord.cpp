@@ -1,5 +1,5 @@
-/src/Debug
-/src/.vs
+/src/Debug/*
+/src/.vs/*
 /src/test.cpp
 example.txt
 main.cpp
