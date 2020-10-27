@@ -1,0 +1,9 @@
+﻿  Api.cpp
+  Channel.cpp
+  Client.cpp
+  Guild.cpp
+  Message.cpp
+  test.cpp
+  User.cpp
+  Generating Code...
+  discord-cpp.vcxproj -> E:\coding\c++\libs\discord-cpp\src\Debug\discord-cpp.exe
