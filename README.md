@@ -21,7 +21,7 @@ int main()
 
  client.onMessage = [&](dpp::Message message) {
   if (message.content == "jaaj?") {
-   message.chanel.send("jooj");
+   message.chanel.send("jooj"); // or message.reply("jooj"), which mentions the message author
   }
  };
  

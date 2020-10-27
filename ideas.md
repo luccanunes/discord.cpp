@@ -1,5 +1,10 @@
-[] add method `reply` to `Message` class
-[] add method `add_mention` to `Message` class
-[] add `Role` class
-[] add `Emoji` class
-[] add `Embed` class
+## Ideas
+- [x] add method `reply` to `Message` class <br />
+- [x] make `Message::author` a `User` type <br />
+- [ ] organize folders <br />
+- [ ] add method `add_mention` to `Message` class <br />
+- [ ] add `Embed` class <br />
+- [ ] add `Role` class <br />
+- [ ] add `Emoji` class <br />
+
+
