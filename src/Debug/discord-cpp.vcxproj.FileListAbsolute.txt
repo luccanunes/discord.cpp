@@ -1,5 +1,0 @@
-E:\coding\c++\libs\discord-cpp\src\Debug\discord-cpp.vcxproj.CopyComplete
-E:\coding\c++\libs\discord-cpp\src\Debug\discord-cpp.exe
-E:\coding\c++\libs\discord-cpp\src\Debug\discord-cpp.pdb
-E:\coding\c++\libs\discord-cpp\src\Debug\libcurl-d.dll
-E:\coding\c++\libs\discord-cpp\src\Debug\zlibd1.dll
