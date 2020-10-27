@@ -1,5 +1,10 @@
 # discord.cpp
- A Discord API wrapper for creating BOT's 
+<div align="center">
+  <img height="200" src="https://i.imgur.com/JbfoUAS.png">
+  <p>A Discord API wrapper for creating C++ BOT's</p>
+</div>
+
+---
  
 ## About
 Inspired by the simplicity of [discord.py](https://github.com/Rapptz/discord.py) and [discord.js](https://github.com/discordjs/discord.js), discord.cpp tries to make the process of interacting with the [Discord API](https://discord.com/developers/docs/intro) easier, so you can worry less about all the socket connections under the hood, and focus on making your bot better.
