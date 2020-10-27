@@ -1,6 +1,6 @@
-# discord.cpp
 <div align="center">
-  <img height="200" src="https://i.imgur.com/JbfoUAS.png">
+  <img height="200" src="https://i.imgur.com/s2egZ6r.png">
+  <h1>discord.cpp</h1>
   <p>A Discord API wrapper for creating C++ BOT's</p>
 </div>
 
