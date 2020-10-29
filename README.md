@@ -14,6 +14,8 @@ Inspired by the simplicity of [discord.py](https://github.com/Rapptz/discord.py)
 #include <iostream>
 #include <dpp.h>
 
+std::string token = "Bot token";
+
 int main()
 {
  dpp::Client client;
@@ -25,11 +27,11 @@ int main()
 
  client.onMessage = [&](dpp::Message message) {
   if (message.content == "jaaj?") {
-   message.chanel.send("jooj"); // or message.reply("jooj"), which mentions the message author
+   message.channel.send("jooj"); // or message.reply("jooj"), which mentions the message author
   }
  };
  
- client.run(TOKEN);
+ client.run(token);
 }
 ```
 
