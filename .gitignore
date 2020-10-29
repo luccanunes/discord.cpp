@@ -1,6 +1,7 @@
 /src/Debug/*
 /src/.vs/*
 /src/test.cpp
+/testing
 example.txt
 main.cpp
 *.db

@@ -30,7 +30,7 @@ namespace dpp {
 		json res = Api::get("/channels/" + channel_id);
 		channel.initialize(res);
 	}
-	void Message::reply(const std::string& message) {
+	std::string Message::reply(const std::string& message) {
 		const std::string path = "/channels/" + channel_id + "/messages";
 		json body = {
 			{"content", "<@" + author.id + "> " + message},
@@ -38,10 +38,9 @@ namespace dpp {
 				{"users", {author.id}}
 			}}
 		};
-		Api::post(path, cpr::Body{ body.dump() });
+		return Api::post(path, cpr::Body{ body.dump() }).dump();
 	}
 	std::string Message::add_mention(const std::string& emoji) {
-		json res = Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + emoji + "/@me");
-		return res.dump();
+		return Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + emoji + "/@me").dump();
 	}
 }
