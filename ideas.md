@@ -2,7 +2,7 @@
 - [x] add method `reply` to `Message` class <br />
 - [x] make `Message::author` of type `User`<br />
 - [x] organize folders (sort of) <br />
-- [ ] add method `add_mention` to `Message` class <br />
+- [x] add method `add_mention` to `Message` class <br />
 - [ ] add `Embed` class <br />
 - [ ] add `Role` class <br />
 - [ ] add `Emoji` class <br />
