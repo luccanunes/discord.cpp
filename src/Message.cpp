@@ -38,6 +38,10 @@ namespace dpp {
 				{"users", {author.id}}
 			}}
 		};
-		json res = Api::post(path, cpr::Body{ body.dump() });
+		Api::post(path, cpr::Body{ body.dump() });
+	}
+	std::string Message::add_mention(const std::string& emoji) {
+		json res = Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + emoji + "/@me");
+		return res.dump();
 	}
 }

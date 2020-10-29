@@ -8,4 +8,5 @@ namespace Api {
 	extern std::string TOKEN;
 	nlohmann::json get(const std::string& path);
 	nlohmann::json post(const std::string& path, const cpr::Body& body);
+	nlohmann::json put(const std::string& path);
 }

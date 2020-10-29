@@ -27,6 +27,7 @@ namespace dpp {
 		nlohmann::json mention_roles;
 		nlohmann::json reactions;
 		void reply(const std::string& message);
+		std::string add_mention(const std::string& emoji);
 	private:
 		std::string channel_id;
 	};
