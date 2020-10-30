@@ -6,7 +6,6 @@ namespace dpp {
 	void Guild::initialize(json& props) {
 		id = props["id"];
 		name = props["name"];
-		roles = props["roles"];
 		region = props["region"];
 		emojis = props["emojis"];
 		owner_id = props["owner_id"];
@@ -18,5 +17,10 @@ namespace dpp {
 			icon = props["icon"];
 		if (!props["widget_enabled"].is_null())
 			widget_enabled = props["widget_enabled"];
+
+		for (json role : props["roles"]) {
+			Role r(role);
+			roles.push_back(r);
+		}
 	}
 }

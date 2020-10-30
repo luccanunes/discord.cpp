@@ -2,6 +2,8 @@
 
 #include <string>
 #include <nlohmann/json.hpp>
+#include <vector>
+#include "Role.h"
 
 namespace dpp {
 	class Guild {
@@ -15,7 +17,7 @@ namespace dpp {
 		std::string region;
 		std::string owner_id;
 		std::string description;
-		nlohmann::json roles;
+		std::vector<Role> roles;
 		nlohmann::json emojis;
 		friend class Channel;
 	protected:
