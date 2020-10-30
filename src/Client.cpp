@@ -10,7 +10,7 @@ using json = nlohmann::json;
 namespace dpp {
 	void Client::run(const std::string& TOKEN) {
 		token = TOKEN;
-		Api::TOKEN = TOKEN;
+		Api::initialize(TOKEN);
 		ix::initNetSystem();
 
 		std::string url("wss://gateway.discord.gg/?v=6&encoding=json");
