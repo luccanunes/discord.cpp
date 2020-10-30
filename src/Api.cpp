@@ -1,5 +1,4 @@
 ﻿#include "Api.h"
-#include <iostream>
 
 using json = nlohmann::json;
 
@@ -25,12 +24,20 @@ namespace Api {
 	}
 	json put(const std::string& path) {
 		const std::string URL = baseURL + path;
-		std::cout << "URL: " << URL << std::endl;
 		cpr::Response res = cpr::Put(
 			cpr::Url{ URL },
 			cpr::Header{ {"authorization", auth}, {"Content-length", "0"} }
 		);
-		std::cout << "Response: " << res.text << std::endl;
+		json result;
+		if (res.text.length() != 0)
+			result = json::parse(res.text);
+		else
+			result = json::parse("{}");
+		return result;
+	}
+	json del(const std::string& path) {
+		const std::string URL = baseURL + path;
+		cpr::Response res = cpr::Delete(cpr::Url{ URL }, cpr::Header{ {"authorization", auth} });
 		json result;
 		if (res.text.length() != 0)
 			result = json::parse(res.text);

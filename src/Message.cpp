@@ -40,8 +40,10 @@ namespace dpp {
 		};
 		return Api::post(path, cpr::Body{ body.dump() }).dump();
 	}
-	std::string Message::add_mention(const std::string& emoji) {
+	std::string Message::add_reaction(const std::string& emoji) {
 		return Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + urlEncode(emoji) + "/@me").dump();
+	}std::string Message::remove_my_reaction(const std::string& emoji) {
+		return Api::del("/channels/" + channel_id + "/messages/" + id + "/reactions/" + urlEncode(emoji) + "/@me").dump();
 	}
 	bool Message::startsWith(const std::string& s) {
 		return content.find(s) == 0;
