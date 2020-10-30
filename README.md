@@ -31,6 +31,8 @@ int main()
  };
  
  client.run(token);
+ 
+ return 0;
 }
 ```
 
