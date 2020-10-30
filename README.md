@@ -14,10 +14,9 @@ Inspired by the simplicity of [discord.py](https://github.com/Rapptz/discord.py)
 #include <iostream>
 #include <dpp.h>
 
-std::string token = "Bot token";
-
 int main()
 {
+ const std::string token = "Bot token here";
  dpp::Client client;
 
  client.onReady = [&]() {
