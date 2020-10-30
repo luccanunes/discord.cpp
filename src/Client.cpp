@@ -1,7 +1,6 @@
 #pragma comment(lib, "crypt32")
 #pragma comment(lib, "ws2_32.lib")
 
-#include <iostream>
 #include "Client.h"
 #include "Api.h"
 
@@ -23,7 +22,6 @@ namespace dpp {
 			{
 				if (msg->type == ix::WebSocketMessageType::Message)
 				{
-					std::cout << "RESPONSE: " << msg->str << "\n\n";
 					json res = json::parse(msg->str);
 					if (res["s"].is_number())
 						lastS = res["s"];
@@ -37,7 +35,6 @@ namespace dpp {
 								{"op", 1},
 								{"d", nullptr}
 							};
-							std::cout << "SENDING HEARTBEAT: " << heartbeat_p.dump() << "\n\n";
 							webSocket.send(heartbeat_p.dump());
 						}
 						sendID();
@@ -45,7 +42,6 @@ namespace dpp {
 					case 0:
 						std::string t = res["t"];
 						if (t == "READY") {
-							std::cout << "USER INFO: " << res["d"]["user"] << "\n\n";
 							user.initialize(res["d"]["user"]);
 							if (onReady)
 								onReady();
@@ -57,10 +53,6 @@ namespace dpp {
 						}
 						break;
 					}
-				}
-				else if (msg->type == ix::WebSocketMessageType::Open)
-				{
-					std::cout << "Connection established" << "\n\n";
 				}
 			}
 		);
@@ -77,7 +69,6 @@ namespace dpp {
 					{"op", 1},
 					{"d", lastS}
 				};
-				std::cout << "SENDING HEARTBEAT: " << payload.dump() << "\n\n";
 				webSocket.send(payload.dump());
 			}
 			std::this_thread::sleep_for(std::chrono::milliseconds(200));
@@ -91,13 +82,11 @@ namespace dpp {
 				{"token", token}, {"properties", props}, {"intents", 513}
 			}}
 		};
-		std::cout << "SENDING: " << id.dump() << "\n\n";
 		webSocket.send(id.dump());
 	}
 	void Client::send(const std::string message, const std::string channel_id) {
 		const std::string path = "/channels/" + channel_id + "/messages";
 		json body = { {"content", message} };
 		json res = Api::post(path, cpr::Body{ body.dump() });
-		std::cout << res << std::endl;
 	}
 }
