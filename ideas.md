@@ -8,4 +8,5 @@
 - [ ] add `Embed` class <br/>
 - [ ] add `Role` class <br/>
 - [ ] add `Emoji` class <br/>
+- [ ] add `Reaction` class <br/>
 - [ ] add `Commands & Events Handler` <br/>
