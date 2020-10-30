@@ -39,7 +39,6 @@ main.cpp
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
