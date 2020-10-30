@@ -9,4 +9,3 @@
 - [ ] add `Role` class <br/>
 - [ ] add `Emoji` class <br/>
 - [ ] add `Commands & Events Handler` <br/>
-- [ ] add `Commands & Events Handler` <br/>
