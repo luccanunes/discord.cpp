@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <exception>
 #include "Client.h"
 #include "Api.h"
 
