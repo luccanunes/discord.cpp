@@ -56,9 +56,6 @@ namespace dpp {
 						break;
 					}
 				}
-				else if (msg->type == ix::WebSocketMessageType::Open)
-				{
-				}
 				else if (msg->type == ix::WebSocketMessageType::Close) {
 					switch (msg->closeInfo.code) {
 					case 4004:
