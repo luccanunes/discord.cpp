@@ -37,7 +37,7 @@ int main()
 ```
 
 ## Installation and set up
-First of all, clone the repository to your machine in a directory of your choice.
+First of all, clone the repository to your machine in a directory of your choice (make sure you're cloning the `main` branch, not the `development` one).
 
 To create your own project using discord.cpp you have to follow these steps, for this example I'll use Visual Studio, but the steps should be the same. Just google the specifics for your IDE of choice.
 

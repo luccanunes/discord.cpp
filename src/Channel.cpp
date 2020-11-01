@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Channel.h"
 #include "Api.h"
 
@@ -23,7 +22,6 @@ namespace dpp {
 		const std::string path = "/channels/" + id + "/messages";
 		json body = { {"content", message} };
 		json res = Api::post(path, cpr::Body{ body.dump() });
-		std::cout << res << std::endl;
 	}
 	Guild Channel::guild() {
 		json res = Api::get("/guilds/" + guild_id + "?with_counts=true");
