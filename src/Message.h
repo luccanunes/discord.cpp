@@ -19,6 +19,7 @@ namespace dpp {
 		std::string content;
 		std::string timestamp;
 		std::string guild_id;
+		std::string channel_id;
 		nlohmann::json embeds;
 		nlohmann::json member;
 		nlohmann::json attachments;
@@ -30,7 +31,5 @@ namespace dpp {
 		std::string add_reaction(const std::string& emoji);
 		std::string remove_my_reaction(const std::string& emoji);
 		bool startsWith(const std::string& s);
-	private:
-		std::string channel_id;
 	};
 }
