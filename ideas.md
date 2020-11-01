@@ -2,11 +2,18 @@
 - [x] add method `reply` to `Message` class <br/>
 - [x] make `Message::author` of type `User`<br/>
 - [x] organize folders (sort of) <br/>
-- [x] add method `add_reaction` to `Message` class <br/>
-- [x] add `startsWith` to `Message` class <br/>
-- [ ] add method `remove_my_reaction` to `Message` class <br/>
+- [ ] add `Message` class: <br>
+  - [x] `startsWith` <br>
+  - [ ] `message.author.bot`(just add the "bot" state) <br>
+- [ ] add to `Client` class: <br>
+  - [ ] `guilds(.get/others..)` <br>
+  - [ ] `users(.get/others..)` <br>
 - [ ] add `Embed` class <br/>
 - [ ] add `Role` class <br/>
 - [ ] add `Emoji` class <br/>
 - [ ] add `Reaction` class <br/>
+  - [x] `remove_my_reaction`
+  - [x] `add_reaction` <br>
 - [ ] add `Commands & Events Handler` <br/>
+- [ ] Solve problems for `client.run` in `Client.cpp`
+  - [ ] In a `try{client.run("token")}catch(std::string e){std::cout << "Invalid token":}` There is a loop.
