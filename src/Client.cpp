@@ -2,7 +2,10 @@
 #pragma comment(lib, "ws2_32.lib")
 
 #include <iostream>
+<<<<<<< HEAD
 #include <stdexcept>
+=======
+>>>>>>> parent of 71ad507... :bug: Add token validation
 #include "Client.h"
 #include "Api.h"
 
@@ -22,7 +25,6 @@ namespace dpp {
 
 		webSocket.setOnMessageCallback([&](const ix::WebSocketMessagePtr& msg)
 			{
-				if (isTokenInvalid) return;
 				if (msg->type == ix::WebSocketMessageType::Message)
 				{
 					std::cout << "RESPONSE: " << msg->str << "\n\n";
@@ -64,16 +66,6 @@ namespace dpp {
 				{
 					std::cout << "Connection established" << "\n\n";
 				}
-				else if (msg->type == ix::WebSocketMessageType::Close) {
-					std::cout << "Disconnected" << std::endl;
-					std::cout << msg->closeInfo.code << std::endl;
-					switch (msg->closeInfo.code) {
-					case 4004:
-						std::cout << msg->closeInfo.reason << " Invalid token\n";
-						isTokenInvalid = true;
-						break;
-					}
-				}
 			}
 		);
 
@@ -82,7 +74,6 @@ namespace dpp {
 		int count = 0;
 		while (true)
 		{
-			if (isTokenInvalid) throw std::invalid_argument("invalid token");
 			count += 200;
 			if (connected && heartbeat_interval != -1 && count >= heartbeat_interval) {
 				count = 0;
