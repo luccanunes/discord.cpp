@@ -11,7 +11,6 @@ namespace dpp {
 	public:
 		Message(nlohmann::json& props);
 		User author;
-		Channel channel;
 		int flags;
 		bool tts;
 		bool pinned;
@@ -26,6 +25,7 @@ namespace dpp {
 		nlohmann::json mentions;
 		nlohmann::json mention_roles;
 		nlohmann::json reactions;
+		Channel channel();
 		std::string reply(const std::string& message);
 		std::string add_reaction(const std::string& emoji);
 		std::string remove_my_reaction(const std::string& emoji);

@@ -8,6 +8,7 @@
 namespace dpp {
 	class Guild {
 	public:
+		Guild(nlohmann::json& props);
 		int afk_timeout;
 		int approximate_member_count;
 		bool widget_enabled;
@@ -20,7 +21,5 @@ namespace dpp {
 		std::vector<Role> roles;
 		nlohmann::json emojis;
 		friend class Channel;
-	protected:
-		void initialize(nlohmann::json& props);
 	};
 }

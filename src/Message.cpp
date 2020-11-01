@@ -27,8 +27,6 @@ namespace dpp {
 			reactions = props["reactions"];
 
 		author.initialize(props["author"]);
-		json res = Api::get("/channels/" + channel_id);
-		channel.initialize(res);
 	}
 	std::string Message::reply(const std::string& message) {
 		const std::string path = "/channels/" + channel_id + "/messages";
@@ -47,5 +45,10 @@ namespace dpp {
 	}
 	bool Message::startsWith(const std::string& s) {
 		return content.find(s) == 0;
+	}
+	Channel Message::channel() {
+		json res = Api::get("/channels/" + channel_id);
+		Channel c(res);
+		return c;
 	}
 }

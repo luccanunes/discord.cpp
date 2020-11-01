@@ -6,6 +6,7 @@
 namespace dpp {
 	class User {
 	public:
+		void initialize(nlohmann::json& props);
 		bool bot;
 		std::string id;
 		std::string name;
@@ -14,7 +15,5 @@ namespace dpp {
 		std::string discriminator;
 		friend class Client;
 		friend class Message;
-	protected:
-		void initialize(nlohmann::json& props);
 	};
 }

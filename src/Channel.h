@@ -7,7 +7,8 @@
 namespace dpp {
 	class Channel {
 	public:
-		Guild guild;
+		Channel(nlohmann::json& props);
+		Guild guild();
 		int type;
 		int position;
 		std::string id;
@@ -20,6 +21,5 @@ namespace dpp {
 		friend class Message;
 	protected:
 		std::string guild_id;
-		void initialize(nlohmann::json& props);
 	};
 }
