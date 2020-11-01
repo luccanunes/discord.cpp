@@ -1,6 +1,7 @@
 #pragma comment(lib, "crypt32")
 #pragma comment(lib, "ws2_32.lib")
 
+#include <stdexcept>
 #include "Client.h"
 #include "Api.h"
 
@@ -20,6 +21,7 @@ namespace dpp {
 
 		webSocket.setOnMessageCallback([&](const ix::WebSocketMessagePtr& msg)
 			{
+				if (isTokenInvalid) return;
 				if (msg->type == ix::WebSocketMessageType::Message)
 				{
 					json res = json::parse(msg->str);
@@ -54,6 +56,13 @@ namespace dpp {
 						break;
 					}
 				}
+				else if (msg->type == ix::WebSocketMessageType::Close) {
+					switch (msg->closeInfo.code) {
+					case 4004:
+						isTokenInvalid = true;
+						break;
+					}
+				}
 			}
 		);
 
@@ -62,6 +71,7 @@ namespace dpp {
 		int count = 0;
 		while (true)
 		{
+			if (isTokenInvalid) throw std::invalid_argument("invalid token");
 			count += 200;
 			if (connected && heartbeat_interval != -1 && count >= heartbeat_interval) {
 				count = 0;

@@ -25,5 +25,6 @@ namespace dpp {
 		bool connected;
 		std::string token;
 		void sendID();
+		bool isTokenInvalid;
 	};
 }
