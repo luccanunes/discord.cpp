@@ -66,7 +66,7 @@ Here's how to do it in Visual Studio:
 9. Hit "Apply" and "Ok" and you should be good to go.
 
 ## Documention
-We're still working on the library documentaion, you can follow the updates by checking it's [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/discord.cpp-docs/)
+We're still working on the library documentaion, you can follow the updates by checking it's [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
 
 ## Special thanks
 - [IXWebSocket](https://github.com/machinezone/IXWebSocket)
