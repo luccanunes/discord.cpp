@@ -5,6 +5,7 @@
 #include <string>
 #include "Channel.h"
 #include "User.h"
+#include "Embed.h"
 
 namespace dpp {
 	class Message {
@@ -27,7 +28,9 @@ namespace dpp {
 		nlohmann::json mention_roles;
 		nlohmann::json reactions;
 		Channel channel();
+		std::string reply(const Embed& embed);
 		std::string reply(const std::string& message);
+		std::string reply(const std::string& message, const Embed& embed);
 		std::string add_reaction(const std::string& emoji);
 		std::string remove_my_reaction(const std::string& emoji);
 		bool startsWith(const std::string& s);

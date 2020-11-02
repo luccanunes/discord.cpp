@@ -1,6 +1,7 @@
 #include "Message.h"
 #include "Api.h"
 #include "urlEncode.h"
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -28,15 +29,35 @@ namespace dpp {
 
 		author.initialize(props["author"]);
 	}
+	std::string Message::reply(const Embed& embed) {
+		json body = {
+			{"content", "<@" + author.id + "> "},
+			{"embed", embed.json()},
+			{"allowed_mentions", {
+				{"users", {author.id}}
+			}}
+		};
+		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
+	}
 	std::string Message::reply(const std::string& message) {
-		const std::string path = "/channels/" + channel_id + "/messages";
 		json body = {
 			{"content", "<@" + author.id + "> " + message},
 			{"allowed_mentions", {
 				{"users", {author.id}}
 			}}
 		};
-		return Api::post(path, cpr::Body{ body.dump() }).dump();
+		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
+	}
+	std::string Message::reply(const std::string& message, const Embed& embed) {
+		json body = {
+			{"content", "<@" + author.id + "> " + message},
+			{"embed", embed.json()},
+			{"allowed_mentions", {
+				{"users", {author.id}}
+			}}
+		};
+		std::cout << "REQUEST BODY: " << body.dump() << std::endl;
+		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
 	std::string Message::add_reaction(const std::string& emoji) {
 		return Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + urlEncode(emoji) + "/@me").dump();
