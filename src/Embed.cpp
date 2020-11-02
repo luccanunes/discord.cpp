@@ -25,7 +25,7 @@ namespace dpp {
 	void Embed::setDescription(const std::string& description) {
 		this->description = description;
 	}
-	std::string Embed::json_str() const {
+	nlohmann::json Embed::json() const {
 		nlohmann::json j;
 		if (colour >= 0)
 			j["colour"] = colour;
@@ -37,6 +37,6 @@ namespace dpp {
 			j["timestamp"] = timestamp;
 		if (!description.empty())
 			j["description"] = description;
-		return j.dump();
+		return j;
 	}
 }

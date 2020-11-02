@@ -21,6 +21,6 @@ namespace dpp {
 		std::string title;
 		std::string timestamp;
 		std::string description;
-		std::string json_str() const;
+		nlohmann::json json() const;
 	};
 }
