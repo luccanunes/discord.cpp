@@ -9,6 +9,8 @@ namespace dpp {
 		discriminator = props["discriminator"];
 		if (!props["bot"].is_null())
 			bot = props["bot"];
+		else
+			bot = false;
 		if (!props["email"].is_null())
 			email = props["email"];
 	}
