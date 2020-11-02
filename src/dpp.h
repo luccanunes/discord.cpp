@@ -3,4 +3,5 @@
 
 #include "Client.h"
 #include "Message.h"
+#include "Embed.h"
 #include "urlEncode.h"
