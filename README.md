@@ -68,6 +68,7 @@ Here's how to do it in Visual Studio:
 ## Special thanks
 - [IXWebSocket](https://github.com/machinezone/IXWebSocket)
 - [nlohmann json](https://github.com/nlohmann/json)
+- [cpr (C++ requests)](https://github.com/whoshuu/cpr)
 
 Maintaining discord.cpp is only possible thanks to these incredible and easy to use libraries.
 
