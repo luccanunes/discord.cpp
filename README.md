@@ -24,9 +24,9 @@ int main()
   std::cout << client.user.id << "\n\n";
  };
 
- client.onMessage = [&](dpp::Message& message) {
+ client.onMessage = [&](const dpp::Message& message) {
   if (message.content == "jaaj?") {
-   message.channel.send("jooj"); // or message.reply("jooj"), which mentions the message author
+   message.channel().send("jooj"); // or message.reply("jooj"), which mentions the message author
   }
  };
  
