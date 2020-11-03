@@ -29,7 +29,7 @@ namespace dpp {
 
 		author.initialize(props["author"]);
 	}
-	std::string Message::reply(const Embed& embed) {
+	std::string Message::reply(const Embed& embed) const {
 		json body = {
 			{"content", "<@" + author.id + "> "},
 			{"embed", embed.json()},
@@ -39,7 +39,7 @@ namespace dpp {
 		};
 		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
-	std::string Message::reply(const std::string& message) {
+	std::string Message::reply(const std::string& message) const {
 		json body = {
 			{"content", "<@" + author.id + "> " + message},
 			{"allowed_mentions", {
@@ -48,7 +48,7 @@ namespace dpp {
 		};
 		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
-	std::string Message::reply(const std::string& message, const Embed& embed) {
+	std::string Message::reply(const std::string& message, const Embed& embed) const {
 		json body = {
 			{"content", "<@" + author.id + "> " + message},
 			{"embed", embed.json()},
@@ -59,15 +59,15 @@ namespace dpp {
 		std::cout << "REQUEST BODY: " << body.dump() << std::endl;
 		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
-	std::string Message::add_reaction(const std::string& emoji) {
+	std::string Message::add_reaction(const std::string& emoji) const {
 		return Api::put("/channels/" + channel_id + "/messages/" + id + "/reactions/" + urlEncode(emoji) + "/@me").dump();
-	}std::string Message::remove_my_reaction(const std::string& emoji) {
+	}std::string Message::remove_my_reaction(const std::string& emoji) const {
 		return Api::del("/channels/" + channel_id + "/messages/" + id + "/reactions/" + urlEncode(emoji) + "/@me").dump();
 	}
-	bool Message::startsWith(const std::string& s) {
+	bool Message::startsWith(const std::string& s) const {
 		return content.find(s) == 0;
 	}
-	Channel Message::channel() {
+	Channel Message::channel() const {
 		json res = Api::get("/channels/" + channel_id);
 		Channel c(res);
 		return c;
