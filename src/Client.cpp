@@ -22,7 +22,6 @@ namespace dpp {
 		webSocket.setOnMessageCallback([&](const ix::WebSocketMessagePtr& msg) {
 			if (isTokenInvalid) return;
 			if (msg->type == ix::WebSocketMessageType::Message) {
-				std::cout << "RESPONSE: " << msg->str << "\n\n";
 				json res = json::parse(msg->str);
 				if (res["s"].is_number())
 					lastS = res["s"];
@@ -36,7 +35,6 @@ namespace dpp {
 							{"op", 1},
 							{"d", nullptr}
 						};
-						std::cout << "SENDING HEARTBEAT: " << heartbeat_p.dump() << "\n\n";
 						webSocket.send(heartbeat_p.dump());
 					}
 					sendID();
@@ -44,7 +42,6 @@ namespace dpp {
 				case 0:
 					std::string t = res["t"];
 					if (t == "READY") {
-						std::cout << "USER INFO: " << res["d"]["user"] << "\n\n";
 						user.initialize(res["d"]["user"]);
 						if (onReady)
 							onReady();
@@ -58,14 +55,10 @@ namespace dpp {
 				}
 			}
 			else if (msg->type == ix::WebSocketMessageType::Open) {
-				std::cout << "Connection established" << "\n\n";
 			}
 			else if (msg->type == ix::WebSocketMessageType::Close) {
-				std::cout << "Disconnected" << std::endl;
-				std::cout << msg->closeInfo.code << std::endl;
 				switch (msg->closeInfo.code) {
 				case 4004:
-					std::cout << msg->closeInfo.reason << " Invalid token\n";
 					isTokenInvalid = true;
 					break;
 				}
@@ -104,6 +97,5 @@ namespace dpp {
 	void Client::send(const std::string message, const std::string channel_id) const {
 		json body = { {"content", message} };
 		json res = Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() });
-		std::cout << res << std::endl;
 	}
 }
