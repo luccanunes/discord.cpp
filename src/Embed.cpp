@@ -28,7 +28,7 @@ namespace dpp {
 	nlohmann::json Embed::json() const {
 		nlohmann::json j;
 		if (colour >= 0)
-			j["colour"] = colour;
+			j["color"] = colour;
 		if (!url.empty())
 			j["url"] = url;
 		if (!title.empty())
