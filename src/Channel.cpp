@@ -19,11 +19,17 @@ namespace dpp {
 		if (!props["last_message_id"].is_null())
 			last_message_id = props["last_message_id"];
 	}
-	void Channel::send(const std::string& message) {
-		const std::string path = "/channels/" + id + "/messages";
+	std::string Channel::send(const Embed& embed) const {
+		json body = { {"embed", embed.json()} };
+		return Api::post("/channels/" + id + "/messages", cpr::Body{ body.dump() }).dump();
+	}
+	std::string Channel::send(const std::string& message) const {
 		json body = { {"content", message} };
-		json res = Api::post(path, cpr::Body{ body.dump() });
-		std::cout << res << std::endl;
+		return Api::post("/channels/" + id + "/messages", cpr::Body{ body.dump() }).dump();
+	}
+	std::string Channel::send(const std::string& message, const Embed& embed) const {
+		json body = { {"content", message}, {"embed", embed.json()} };
+		return Api::post("/channels/" + id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
 	Guild Channel::guild() {
 		json res = Api::get("/guilds/" + guild_id + "?with_counts=true");
