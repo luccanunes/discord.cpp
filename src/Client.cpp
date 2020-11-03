@@ -22,7 +22,8 @@ namespace dpp {
 
 		webSocket.setOnMessageCallback([&](const ix::WebSocketMessagePtr& msg) {
 			if (isTokenInvalid) return;
-			if (msg->type == ix::WebSocketMessageType::Message) {
+			if (msg->type == ix::WebSocketMessageType::Message)
+			{
 				std::cout << "RESPONSE: " << msg->str << "\n\n";
 				json res = json::parse(msg->str);
 				if (res["s"].is_number())
@@ -58,7 +59,8 @@ namespace dpp {
 					break;
 				}
 			}
-			else if (msg->type == ix::WebSocketMessageType::Open) {
+			else if (msg->type == ix::WebSocketMessageType::Open)
+			{
 				std::cout << "Connection established" << "\n\n";
 			}
 			else if (msg->type == ix::WebSocketMessageType::Close) {
@@ -104,9 +106,10 @@ namespace dpp {
 		std::cout << "SENDING: " << id.dump() << "\n\n";
 		webSocket.send(id.dump());
 	}
-	void Client::send(const std::string message, const std::string channel_id) const {
+	void Client::send(const std::string message, const std::string channel_id) {
+		const std::string path = "/channels/" + channel_id + "/messages";
 		json body = { {"content", message} };
-		json res = Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() });
+		json res = Api::post(path, cpr::Body{ body.dump() });
 		std::cout << res << std::endl;
 	}
 }

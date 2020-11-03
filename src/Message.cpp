@@ -1,6 +1,7 @@
 #include "Message.h"
 #include "Api.h"
 #include "urlEncode.h"
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -55,6 +56,7 @@ namespace dpp {
 				{"users", {author.id}}
 			}}
 		};
+		std::cout << "REQUEST BODY: " << body.dump() << std::endl;
 		return Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() }).dump();
 	}
 	std::string Message::add_reaction(const std::string& emoji) const {
