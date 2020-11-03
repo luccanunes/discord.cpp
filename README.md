@@ -65,8 +65,8 @@ Here's how to do it in Visual Studio:
 8. Select "Additional Dependencies", and edit the text string by adding "discord-cpp.lib;" to its beginning <br/> <img width='450' src="https://user-images.githubusercontent.com/68504851/97648393-62500e00-1a33-11eb-8eba-45eed1fcd837.png">
 9. Hit "Apply" and "Ok" and you should be good to go.
 
-## Documention
-We're still working on the library documentaion, you can follow the updates by checking it's [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
+## Documentation
+We're still working on the library documentation, you can follow the updates by checking it's [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
 
 ## Special thanks
 - [IXWebSocket](https://github.com/machinezone/IXWebSocket)

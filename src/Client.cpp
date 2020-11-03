@@ -1,7 +1,6 @@
 #pragma comment(lib, "crypt32")
 #pragma comment(lib, "ws2_32.lib")
 
-#include <iostream>
 #include <stdexcept>
 #include "Client.h"
 #include "Api.h"
@@ -79,7 +78,7 @@ namespace dpp {
 		int count = 0;
 		while (true)
 		{
-			if (isTokenInvalid) throw std::invalid_argument("invalid token");
+			if (isTokenInvalid) throw std::invalid_argument("Invalid token: 4004");
 			count += 200;
 			if (connected && heartbeat_interval != -1 && count >= heartbeat_interval) {
 				count = 0;
@@ -87,7 +86,6 @@ namespace dpp {
 					{"op", 1},
 					{"d", lastS}
 				};
-				std::cout << "SENDING HEARTBEAT: " << payload.dump() << "\n\n";
 				webSocket.send(payload.dump());
 			}
 			std::this_thread::sleep_for(std::chrono::milliseconds(200));
@@ -101,7 +99,6 @@ namespace dpp {
 				{"token", token}, {"properties", props}, {"intents", 513}
 			}}
 		};
-		std::cout << "SENDING: " << id.dump() << "\n\n";
 		webSocket.send(id.dump());
 	}
 	void Client::send(const std::string message, const std::string channel_id) const {
