@@ -10,8 +10,14 @@ namespace dpp {
 		timestamp = "";
 		description = "";
 	}
-	void Embed::setColour(const int& colour) {
-		this->colour = colour;
+	void Embed::setColour(const int& r, const int& g, const int& b) {
+		colour = (r * 65536) + (g * 256) + b;
+	}
+	void Embed::setColour(std::string hex) {
+		if (hex.at(0) == '#')
+			hex = hex.substr(1);
+		std::cout << hex << std::endl;
+		colour = std::stoul(hex, nullptr, 16);
 	}
 	void Embed::setUrl(const std::string& url) {
 		this->url = url;
