@@ -7,7 +7,8 @@ namespace dpp {
 	class Embed {
 	public:
 		Embed();
-		void setColour(const int& colour);
+		void setColour(const int& r, const int& g, const int& b);
+		void setColour(std::string hex);
 		void setUrl(const std::string& url);
 		void setTitle(const std::string& title);
 		void setTimestamp(const std::string& timestamp);
