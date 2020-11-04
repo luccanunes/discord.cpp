@@ -16,6 +16,7 @@ namespace dpp {
 		friend class Client;
 		friend class Channel;
 		friend class Message;
+		friend class Webhook;
 	private:
 		int colour;
 		std::string url;

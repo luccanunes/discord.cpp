@@ -5,7 +5,6 @@
 
 namespace Api {
 	extern std::string baseURL;
-	//extern std::string TOKEN;
 	extern std::string auth;
 	void initialize(const std::string& token);
 	nlohmann::json get(const std::string& path);
