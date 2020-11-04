@@ -4,4 +4,5 @@
 #include "Client.h"
 #include "Message.h"
 #include "Embed.h"
+#include "Webhook.h"
 #include "urlEncode.h"
