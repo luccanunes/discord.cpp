@@ -18,6 +18,8 @@ namespace Api {
 			body,
 			cpr::Header{ {"authorization", auth}, {"Content-Type", "application/json"} }
 		);
+		if (res.text.length() == 0)
+			return json::parse("No body returned for response");
 		return json::parse(res.text);
 	}
 	json put(const std::string& path) {
