@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Channel.h"
 #include "Api.h"
 
