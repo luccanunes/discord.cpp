@@ -5,6 +5,11 @@
 
 ---
  
+## <img align="center" src="https://img.icons8.com/plasticine/2x/new.png" width="50" /> Features
+
+- Embed & Webhook support!
+
+ 
 ## About
 Inspired by the simplicity of [discord.py](https://github.com/Rapptz/discord.py) and [discord.js](https://github.com/discordjs/discord.js), discord.cpp tries to make the process of interacting with the [Discord API](https://discord.com/developers/docs/intro) easier, so you can worry less about all the socket connections under the hood, and focus on making your bot better.
 
