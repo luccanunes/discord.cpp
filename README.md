@@ -104,7 +104,7 @@ There are two ways of using discord.cpp. You can use the static library version 
 </details>
 
 ## Documentation
-We're still working on the library documentation, you can follow the updates by checking it's [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
+We're still working on the library documentation, you can follow the updates by checking its [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
 
 ## Special thanks
 - [IXWebSocket](https://github.com/machinezone/IXWebSocket)
