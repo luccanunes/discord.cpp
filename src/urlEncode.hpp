@@ -1,8 +1,15 @@
+#pragma once
+
+#include <string>
 #include <vector>
-#include "urlEncode.h"
 
 namespace dpp {
-	std::string urlEncode(const std::string& s) {
+	inline void hexChar(unsigned char c, unsigned char& hex1, unsigned char& hex2) {
+		hex1 = c / 16;
+		hex2 = c % 16;
+		hex1 += hex1 <= 9 ? '0' : 'a' - 10;
+	}
+	inline std::string urlEncode(const std::string& s) {
 		const char* str = s.c_str();
 		std::vector<char> v(s.size());
 		v.clear();
@@ -31,11 +38,5 @@ namespace dpp {
 			}
 		}
 		return std::string(v.cbegin(), v.cend());
-	}
-	void hexChar(unsigned char c, unsigned char& hex1, unsigned char& hex2) {
-		hex1 = c / 16;
-		hex2 = c % 16;
-		hex1 += hex1 <= 9 ? '0' : 'a' - 10;
-		hex2 += hex2 <= 9 ? '0' : 'a' - 10;
 	}
 }
