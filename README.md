@@ -103,7 +103,7 @@ There are two ways of using discord.cpp. You can use the static library version 
   Please report any bugs or issues you might have! You can do so by creating a [issue](https://guides.github.com/features/issues/)
 </details>
 
-You can also use something like [vcpkg](https://github.com/microsoft/vcpkg) to handle all the linking.
+You can also use something like [vcpkg](https://github.com/microsoft/vcpkg) to handle all dependencies, those are listed under the [Special Thanks](#special-thanks) section
 
 ## Documentation
 We're still working on the library documentation, you can follow the updates by checking its [github repository](https://github.com/luccanunes/discord.cpp-docs/blob/master/README.md) or just checking the actual [docs website](https://discord-cpp-lib.github.io/documentation/)
