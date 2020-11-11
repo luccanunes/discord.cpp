@@ -7,7 +7,7 @@
  
 ## <img align="center" src="https://img.icons8.com/plasticine/2x/new.png" width="50" /> Features
 
-- Embed & Webhook support!
+- Command class!!
 
  
 ## About
