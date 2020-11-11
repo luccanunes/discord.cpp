@@ -73,7 +73,7 @@ namespace dpp {
 		int count = 0;
 		while (true)
 		{
-			if (isTokenInvalid) throw std::invalid_argument("invalid token");
+			if (isTokenInvalid) throw std::invalid_argument("Invalid token: 4004");
 			count += 200;
 			if (connected && heartbeat_interval != -1 && count >= heartbeat_interval) {
 				count = 0;

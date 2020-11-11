@@ -1,7 +1,5 @@
 #include "Embed.h"
 
-#include <iostream>
-
 namespace dpp {
 	Embed::Embed() {
 		colour = -1;
@@ -16,7 +14,6 @@ namespace dpp {
 	void Embed::setColour(std::string hex) {
 		if (hex.at(0) == '#')
 			hex = hex.substr(1);
-		std::cout << hex << std::endl;
 		colour = std::stoul(hex, nullptr, 16);
 	}
 	void Embed::setUrl(const std::string& url) {
