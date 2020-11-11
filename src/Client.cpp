@@ -50,6 +50,8 @@ namespace dpp {
 						dpp::Message message(res["d"]);
 						if (onMessage)
 							onMessage(message);
+						for (Command c : commands)
+							if (message.startsWith(c.name)) c.callback(message);
 					}
 					break;
 				}
@@ -94,8 +96,11 @@ namespace dpp {
 		};
 		webSocket.send(id.dump());
 	}
-	void Client::send(const std::string message, const std::string channel_id) const {
+	void Client::send(const std::string& message, const std::string& channel_id) const {
 		json body = { {"content", message} };
 		json res = Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() });
+	}
+	void Client::add_command(const Command& command) {
+		commands.push_back(command);
 	}
 }
