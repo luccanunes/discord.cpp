@@ -11,6 +11,7 @@
 #include "Message.hpp"
 #include "User.hpp"
 #include "Api.hpp"
+#include "Command.hpp"
 
 namespace dpp {
 	class Client {
@@ -58,6 +59,8 @@ namespace dpp {
 							dpp::Message message(res["d"]);
 							if (onMessage)
 								onMessage(message);
+							for (Command c : commands)
+								if (message.startsWith(c.name)) c.callback(message);
 						}
 						break;
 					}
@@ -97,6 +100,10 @@ namespace dpp {
 			nlohmann::json res = Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() });
 		}
 
+		inline void add_command(const Command& command) {
+			commands.push_back(command);
+		}
+
 		std::function<void(const Message& message)> onMessage;
 		std::function<void()> onReady;
 	private:
@@ -106,6 +113,7 @@ namespace dpp {
 		bool connected;
 		std::string token;
 		bool isTokenInvalid;
+		std::vector<Command> commands;
 
 		inline void sendID() {
 			nlohmann::json props = { {"$os", "linux"}, {"$browser", "discord_cpp"}, {"$device", "discord_cpp"} };
