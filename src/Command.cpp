@@ -5,4 +5,7 @@ namespace dpp {
 		this->name = name;
 		this->callback = callback;
 	}
+	void Command::setAliases(const std::vector<std::string>& aliases) {
+		this->aliases = aliases;
+	}
 }
