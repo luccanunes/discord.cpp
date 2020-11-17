@@ -18,4 +18,5 @@
 - [x] add `Role` class <br/>
 - [ ] add `Emoji` class <br/>
 - [ ] add `Reaction` class <br/>
-- [ ] add `Commands & Events Handler` <br/>
+- [x] add `Command class` <br/>
+- [ ] add `Events Handler` <br/>
