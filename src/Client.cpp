@@ -54,8 +54,14 @@ namespace dpp {
 						dpp::Message message(res["d"]);
 						if (onMessage)
 							onMessage(message);
-						for (Command c : commands)
-							if (message.startsWith(c.name)) c.callback(message);
+						for (Command c : commands) {
+							if (message.startsWith(c.name)) {
+								c.callback(message);
+								break;
+							}
+							for (std::string alias : c.aliases)
+								if (message.startsWith(alias)) c.callback(message);
+						}
 					}
 					break;
 				}
