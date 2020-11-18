@@ -1,8 +1,9 @@
 #pragma once
 
 #include <nlohmann/json.hpp>
-#include <iostream>
+#include <vector>
 #include <string>
+#include "Guild.hpp"
 
 namespace dpp {
 	class User {
@@ -18,6 +19,14 @@ namespace dpp {
 				bot = false;
 			if (!props["email"].is_null())
 				email = props["email"];
+		}
+		inline std::vector<Guild> guilds() const {
+			std::vector<Guild> guilds;
+			nlohmann::json res = Api::get("/users/@me/guilds");
+			for (nlohmann::json guild : res) {
+				guilds.push_back(Guild(guild));
+			}
+			return guilds;
 		}
 		bool bot;
 		std::string id;
