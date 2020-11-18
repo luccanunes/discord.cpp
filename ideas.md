@@ -9,8 +9,8 @@
   - [x] `remove_my_reaction` method
 - [ ] add to `Client` class: 
   - [ ] `users(.get/others..)` method
-- [ ] add to `User` class:
-  - [ ] `guilds` method 
+- [x] add to `User` class:
+  - [x] `guilds` method 
 - [x] add to `Webhook` class: 
   - [x] `setName` method
   - [x] `setAvatarUrl` method
