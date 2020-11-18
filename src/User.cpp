@@ -1,3 +1,5 @@
+#include <nlohmann/json.hpp>
+#include "Api.h"
 #include "User.h"
 
 namespace dpp {
@@ -12,5 +14,13 @@ namespace dpp {
 			bot = false;
 		if (!props["email"].is_null())
 			email = props["email"];
+	}
+	std::vector<Guild> User::guilds() const {
+		std::vector<Guild> guilds;
+		nlohmann::json res = Api::get("/users/@me/guilds");
+		for (nlohmann::json guild : res) {
+			guilds.push_back(Guild(guild));
+		}
+		return guilds;
 	}
 }
