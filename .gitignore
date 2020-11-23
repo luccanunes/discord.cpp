@@ -1,10 +1,12 @@
-/src/Debug/*
-/src/.vs/*
-/src/test.cpp
+Debug
+build/
+.vs
+test.cpp
 /testing
 example.txt
 main.cpp
 *.db
+*.pdb
 *.db-shm
 *.db-wal
 *.opendb
@@ -39,6 +41,7 @@ main.cpp
 *.lai
 *.la
 *.a
+*.lib
 
 # Executables
 *.exe
