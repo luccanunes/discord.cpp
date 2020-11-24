@@ -8,11 +8,23 @@ include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/whoshuu/cpr.git GIT_TAG c8d33915dbd88ad6c92b258869b03aba06587ff9) # the commit hash for 1.5.0
 FetchContent_MakeAvailable(cpr)
 
+# ixwebsocket
 include(FetchContent)
 FetchContent_Declare(ixwebsocket GIT_REPOSITORY https://github.com/machinezone/IXWebSocket.git GIT_TAG 75e9c84388879262d924e0582f094b38550093dc) # the commit hash for 1.5.0
 FetchContent_MakeAvailable(ixwebsocket)
 
-find_package(nlohmann_json REQUIRED)
+# json
+include(FetchContent)
+
+FetchContent_Declare(json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.7.3)
+
+FetchContent_GetProperties(json)
+if(NOT json_POPULATED)
+  FetchContent_Populate(json)
+  add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
 
 add_library(discord_cpp
     "src/Api.cpp"
@@ -29,6 +41,4 @@ add_library(discord_cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE cpr::cpr)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/libs/cpr/include)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/libs/IXWebSocket)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/libs/json/include)
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)

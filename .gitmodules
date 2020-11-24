@@ -1,9 +1,0 @@
-[submodule "libs/cpr"]
-	path = libs/cpr
-	url = https://github.com/whoshuu/cpr
-[submodule "libs/IXWebSocket"]
-	path = libs/IXWebSocket
-	url = https://github.com/machinezone/IXWebSocket
-[submodule "libs/json"]
-	path = libs/json
-	url = https://github.com/nlohmann/json
