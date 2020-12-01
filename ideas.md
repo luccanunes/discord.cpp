@@ -1,23 +1,5 @@
 ## Ideas
 
-- [x] add method `reply` to `Message` class <br/>
-- [x] make `Message::author` of type `User`<br/>
-- [x] organize folders (sort of) <br/>
-- [x] add to `Message` class: 
-  - [x] `startsWith` method
-  - [x] `add_reaction` method
-  - [x] `remove_my_reaction` method
-- [ ] add to `Client` class: 
-  - [ ] `users(.get/others..)` method
-- [x] add to `User` class:
-  - [x] `guilds` method 
-- [x] add to `Webhook` class: 
-  - [x] `setName` method
-  - [x] `setAvatarUrl` method
-  - [x] `setTts` method
-- [x] add `Embed` class <br/>
-- [x] add `Role` class <br/>
 - [ ] add `Emoji` class <br/>
 - [ ] add `Reaction` class <br/>
-- [x] add `Command class` <br/>
 - [ ] add `Events Handler` <br/>
