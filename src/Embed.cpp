@@ -25,6 +25,13 @@ namespace dpp {
 	void Embed::setTitle(const std::string& title) {
 		this->title = title;
 	}
+	void Embed::setFooter(const std::string& text, const std::string& iconUrl) {
+		nlohmann::json footer;
+		footer["text"] = text;
+		if (!iconUrl.empty())
+			footer["icon_url"] = iconUrl;
+		this->footer = footer;
+	}
 	void Embed::setTimestamp(const std::string& timestamp) {
 		this->timestamp = timestamp;
 	}
@@ -39,6 +46,8 @@ namespace dpp {
 			j["url"] = url;
 		if (!title.empty())
 			j["title"] = title;
+		if (!footer.is_null())
+			j["footer"] = footer;
 		if (!timestamp.empty())
 			j["timestamp"] = timestamp;
 		if (!description.empty())

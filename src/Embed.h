@@ -11,6 +11,7 @@ namespace dpp {
 		void setColour(std::string hex);
 		void setUrl(const std::string& url);
 		void setTitle(const std::string& title);
+		void setFooter(const std::string& text, const std::string& iconUrl = "");
 		void setTimestamp(const std::string& timestamp);
 		void setDescription(const std::string& description);
 		friend class Client;
@@ -23,6 +24,7 @@ namespace dpp {
 		std::string title;
 		std::string timestamp;
 		std::string description;
+		nlohmann::json footer;
 		nlohmann::json json() const;
 	};
 }
