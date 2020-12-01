@@ -17,7 +17,7 @@ namespace dpp {
 		dpp::User user;
 		void run(const std::string& TOKEN);
 		void send(const std::string& message, const std::string& channel_id) const;
-		void add_command(const Command& command);
+		void addCommand(const Command& command);
 		std::function<void(const Message& message)> onMessage;
 		std::function<void()> onReady;
 	private:

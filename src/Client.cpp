@@ -117,7 +117,7 @@ namespace dpp {
 		json res = Api::post("/channels/" + channel_id + "/messages", cpr::Body{ body.dump() });
 		std::cout << res << std::endl;
 	}
-	void Client::add_command(const Command& command) {
+	void Client::addCommand(const Command& command) {
 		commands.push_back(command);
 	}
 }
